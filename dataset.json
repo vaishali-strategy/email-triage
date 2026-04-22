@@ -1,0 +1,1002 @@
+[
+    {
+        "body": "Dear Support Team, I am writing to request a password reset for my account. I have been trying to log in for the past hour, but I keep getting an error message. I have tried resetting my password using the forgot password feature, but it is not working. I would appreciate it if you could assist me with this matter. I am currently on a business trip and need access to my account urgently. Please let me know if there is any additional information you need from me. Best regards, John Doe. Sent from my iPhone",
+        "department": "IT",
+        "id": "email_26",
+        "intent": "routine_password_reset",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "john.doe@example.com",
+        "subject": "Request for Password Reset"
+    },
+    {
+        "body": "Dear Customer Service, I am writing to express my disappointment with the refund process. I was expecting a full refund, but I only received a partial refund. I have been a loyal customer for over 5 years and I expect a higher level of service. I would appreciate it if you could look into this matter and provide a full refund as soon as possible. I have attached a copy of my receipt for your reference. Please let me know if there is any additional information you need from me. Thank you for your attention to this matter. Best regards, Jane Smith",
+        "department": "Customer Service",
+        "id": "email_27",
+        "intent": "angry_client_refund",
+        "is_vip": true,
+        "priority": 4,
+        "sender": "jane.smith@abc.corp",
+        "subject": "Concerns about Refund"
+    },
+    {
+        "body": "Dear IT Team, I am writing to inform you that our server is currently down. I have tried to access the server, but I keep getting an error message. I would appreciate it if you could investigate this matter and provide a solution as soon as possible. I am currently on a deadline and need access to the server urgently. Please let me know if there is any additional information you need from me. Best regards, Bob Johnson. Confidentiality Notice: This email is intended only for the use of the individual or entity to which it is addressed and may contain confidential and/or privileged information. If you are not the intended recipient, you are hereby notified that any dissemination, distribution, or copying of this email is strictly prohibited. If you have received this email in error, please notify the sender immediately and destroy all copies of the email",
+        "department": "IT",
+        "id": "email_28",
+        "intent": "vip_server_outage",
+        "is_vip": true,
+        "priority": 5,
+        "sender": "bob.johnson@xyz.io",
+        "subject": "Server Outage"
+    },
+    {
+        "body": "Dear Sales Team, I am writing to inquire about your products and services. I am currently in the market for a new software solution and I would like to learn more about your offerings. I have heard great things about your company and I would appreciate it if you could provide me with some more information. I have attached a copy of my requirements for your reference. Please let me know if there is any additional information you need from me. Thank you for your time and consideration. Best regards, Alice Brown",
+        "department": "Sales",
+        "id": "email_29",
+        "intent": "general_inquiry",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "alice.brown@example.net",
+        "subject": "General Inquiry"
+    },
+    {
+        "body": "Dear Friend, I am writing to inform you about an amazing opportunity to make money fast. I have been using this system for the past month and I have made over $10,000. I would appreciate it if you could take a look at this opportunity and consider investing. I have attached a copy of the system for your reference. Please let me know if you have any questions. Best regards, Spam",
+        "department": "Spam",
+        "id": "email_30",
+        "intent": "spam",
+        "is_vip": false,
+        "priority": 1,
+        "sender": "spam@example.io",
+        "subject": "Make Money Fast"
+    },
+    {
+        "body": "Dear Accounting Team, I am writing to inform you about a discrepancy in our latest invoice. I have reviewed the invoice and I noticed that there is an error in the amount. I would appreciate it if you could investigate this matter and provide a corrected invoice as soon as possible. I have attached a copy of the invoice for your reference. Please let me know if there is any additional information you need from me. Best regards, Mike Davis",
+        "department": "Accounting",
+        "id": "email_31",
+        "intent": "invoice_discrepancy",
+        "is_vip": true,
+        "priority": 3,
+        "sender": "mike.davis@abc.corp",
+        "subject": "Invoice Discrepancy"
+    },
+    {
+        "body": "Dear HR Team, I am writing to inform you about a sensitive matter. I have been experiencing some issues with my manager and I would appreciate it if you could provide some guidance. I have attached a copy of the details for your reference. Please let me know if there is any additional information you need from me. Best regards, Emily Chen. Confidentiality Notice: This email is intended only for the use of the individual or entity to which it is addressed and may contain confidential and/or privileged information. If you are not the intended recipient, you are hereby notified that any dissemination, distribution, or copying of this email is strictly prohibited. If you have received this email in error, please notify the sender immediately and destroy all copies of the email",
+        "department": "HR",
+        "id": "email_32",
+        "intent": "hr_sensitive",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "emily.chen@example.com",
+        "subject": "HR Sensitive"
+    },
+    {
+        "body": "Dear IT Team, I am writing to inform you about a phishing attempt. I received an email that appeared to be from our company, but it was actually a phishing attempt. I would appreciate it if you could investigate this matter and provide a solution as soon as possible. I have attached a copy of the email for your reference. Please let me know if there is any additional information you need from me. Best regards, David Lee",
+        "department": "IT",
+        "id": "email_33",
+        "intent": "spear_phishing",
+        "is_vip": true,
+        "priority": 5,
+        "sender": "david.lee@example.io",
+        "subject": "Phishing Attempt"
+    },
+    {
+        "body": "Dear Development Team, I am writing to request a new feature. I have been using your software for the past year and I would like to see some improvements. I have attached a copy of my request for your reference. Please let me know if there is any additional information you need from me. Thank you for your time and consideration. Best regards, Sophia Patel",
+        "department": "Development",
+        "id": "email_34",
+        "intent": "feature_request",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "sophia.patel@example.com",
+        "subject": "Feature Request"
+    },
+    {
+        "body": "Dear Customer Service, I am writing to inform you that I will be cancelling my subscription. I have been a loyal customer for over 5 years, but I have decided to switch to a different provider. I would appreciate it if you could assist me with the cancellation process. I have attached a copy of my account information for your reference. Please let me know if there is any additional information you need from me. Best regards, Oliver Brown",
+        "department": "Customer Service",
+        "id": "email_35",
+        "intent": "mixed_churn",
+        "is_vip": true,
+        "priority": 3,
+        "sender": "oliver.brown@abc.corp",
+        "subject": "Churn Notification"
+    },
+    {
+        "body": "Dear Sales Team, I am writing to inquire about your products and services. I am currently in the market for a new software solution and I would like to learn more about your offerings. I have heard great things about your company and I would appreciate it if you could provide me with some more information. I have attached a copy of my requirements for your reference. Please let me know if there is any additional information you need from me. Thank you for your time and consideration. Best regards, Isabella Taylor",
+        "department": "Sales",
+        "id": "email_36",
+        "intent": "general_inquiry",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "isabella.taylor@example.net",
+        "subject": "General Inquiry"
+    },
+    {
+        "body": "Dear Friend, I am writing to inform you about an amazing opportunity to make money fast. I have been using this system for the past month and I have made over $10,000. I would appreciate it if you could take a look at this opportunity and consider investing. I have attached a copy of the system for your reference. Please let me know if you have any questions. Best regards, Noah White",
+        "department": "Spam",
+        "id": "email_37",
+        "intent": "spam",
+        "is_vip": false,
+        "priority": 1,
+        "sender": "noah.white@example.io",
+        "subject": "Spam Notification"
+    },
+    {
+        "body": "Dear Accounting Team, I am writing to inform you about a discrepancy in our latest invoice. I have reviewed the invoice and I noticed that there is an error in the amount. I would appreciate it if you could investigate this matter and provide a corrected invoice as soon as possible. I have attached a copy of the invoice for your reference. Please let me know if there is any additional information you need from me. Best regards, Lily Davis",
+        "department": "Accounting",
+        "id": "email_38",
+        "intent": "invoice_discrepancy",
+        "is_vip": true,
+        "priority": 3,
+        "sender": "lily.davis@abc.corp",
+        "subject": "Invoice Discrepancy"
+    },
+    {
+        "body": "Dear HR Team, I am writing to inform you about a sensitive matter. I have been experiencing some issues with my manager and I would appreciate it if you could provide some guidance. I have attached a copy of the details for your reference. Please let me know if there is any additional information you need from me. Best regards, Logan Miller. Confidentiality Notice: This email is intended only for the use of the individual or entity to which it is addressed and may contain confidential and/or privileged information. If you are not the intended recipient, you are hereby notified that any dissemination, distribution, or copying of this email is strictly prohibited. If you have received this email in error, please notify the sender immediately and destroy all copies of the email",
+        "department": "HR",
+        "id": "email_39",
+        "intent": "hr_sensitive",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "logan.miller@example.com",
+        "subject": "HR Sensitive"
+    },
+    {
+        "body": "Dear IT Team, I am writing to inform you about a phishing attempt. I received an email that appeared to be from our company, but it was actually a phishing attempt. I would appreciate it if you could investigate this matter and provide a solution as soon as possible. I have attached a copy of the email for your reference. Please let me know if there is any additional information you need from me. Best regards, Ava Martin",
+        "department": "IT",
+        "id": "email_40",
+        "intent": "spear_phishing",
+        "is_vip": true,
+        "priority": 5,
+        "sender": "ava.martin@example.io",
+        "subject": "Phishing Attempt"
+    },
+    {
+        "body": "Dear Development Team, I am writing to request a new feature. I have been using your software for the past year and I would like to see some improvements. I have attached a copy of my request for your reference. Please let me know if there is any additional information you need from me. Thank you for your time and consideration. Best regards, Jackson Hall",
+        "department": "Development",
+        "id": "email_41",
+        "intent": "feature_request",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "jackson.hall@example.com",
+        "subject": "Feature Request"
+    },
+    {
+        "body": "Dear Customer Service, I am writing to inform you that I will be cancelling my subscription. I have been a loyal customer for over 5 years, but I have decided to switch to a different provider. I would appreciate it if you could assist me with the cancellation process. I have attached a copy of my account information for your reference. Please let me know if there is any additional information you need from me. Best regards, Sophia Lee",
+        "department": "Customer Service",
+        "id": "email_42",
+        "intent": "mixed_churn",
+        "is_vip": true,
+        "priority": 3,
+        "sender": "sophia.lee@abc.corp",
+        "subject": "Churn Notification"
+    },
+    {
+        "body": "Dear Sales Team, I am writing to inquire about your products and services. I am currently in the market for a new software solution and I would like to learn more about your offerings. I have heard great things about your company and I would appreciate it if you could provide me with some more information. I have attached a copy of my requirements for your reference. Please let me know if there is any additional information you need from me. Thank you for your time and consideration. Best regards, Mia Kim",
+        "department": "Sales",
+        "id": "email_43",
+        "intent": "general_inquiry",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "mia.kim@example.net",
+        "subject": "General Inquiry"
+    },
+    {
+        "body": "Dear Friend, I am writing to inform you about an amazing opportunity to make money fast. I have been using this system for the past month and I have made over $10,000. I would appreciate it if you could take a look at this opportunity and consider investing. I have attached a copy of the system for your reference. Please let me know if you have any questions. Best regards, Ethan Kim",
+        "department": "Spam",
+        "id": "email_44",
+        "intent": "spam",
+        "is_vip": false,
+        "priority": 1,
+        "sender": "ethan.kim@example.io",
+        "subject": "Spam Notification"
+    },
+    {
+        "body": "Dear Accounting Team, I am writing to inform you about a discrepancy in our latest invoice. I have reviewed the invoice and I noticed that there is an error in the amount. I would appreciate it if you could investigate this matter and provide a corrected invoice as soon as possible. I have attached a copy of the invoice for your reference. Please let me know if there is any additional information you need from me. Best regards, Lucas Brooks",
+        "department": "Accounting",
+        "id": "email_45",
+        "intent": "invoice_discrepancy",
+        "is_vip": true,
+        "priority": 3,
+        "sender": "lucas.brooks@abc.corp",
+        "subject": "Invoice Discrepancy"
+    },
+    {
+        "body": "Dear HR Team, I am writing to inform you about a sensitive matter. I have been experiencing some issues with my manager and I would appreciate it if you could provide some guidance. I have attached a copy of the details for your reference. Please let me know if there is any additional information you need from me. Best regards, Madison Parker. Confidentiality Notice: This email is intended only for the use of the individual or entity to which it is addressed and may contain confidential and/or privileged information. If you are not the intended recipient, you are hereby notified that any dissemination, distribution, or copying of this email is strictly prohibited. If you have received this email in error, please notify the sender immediately and destroy all copies of the email",
+        "department": "HR",
+        "id": "email_46",
+        "intent": "hr_sensitive",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "madison.parker@example.com",
+        "subject": "HR Sensitive"
+    },
+    {
+        "body": "Dear IT Team, I am writing to inform you about a phishing attempt. I received an email that appeared to be from our company, but it was actually a phishing attempt. I would appreciate it if you could investigate this matter and provide a solution as soon as possible. I have attached a copy of the email for your reference. Please let me know if there is any additional information you need from me. Best regards, Alexander Gray",
+        "department": "IT",
+        "id": "email_47",
+        "intent": "spear_phishing",
+        "is_vip": true,
+        "priority": 5,
+        "sender": "alexander.gray@example.io",
+        "subject": "Phishing Attempt"
+    },
+    {
+        "body": "Dear Development Team, I am writing to request a new feature. I have been using your software for the past year and I would like to see some improvements. I have attached a copy of my request for your reference. Please let me know if there is any additional information you need from me. Thank you for your time and consideration. Best regards, Abigail Harrison",
+        "department": "Development",
+        "id": "email_48",
+        "intent": "feature_request",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "abigail.harrison@example.com",
+        "subject": "Feature Request"
+    },
+    {
+        "body": "Dear Customer Service, I am writing to inform you that I will be cancelling my subscription. I have been a loyal customer for over 5 years, but I have decided to switch to a different provider. I would appreciate it if you could assist me with the cancellation process. I have attached a copy of my account information for your reference. Please let me know if there is any additional information you need from me. Best regards, Hannah Nelson",
+        "department": "Customer Service",
+        "id": "email_49",
+        "intent": "mixed_churn",
+        "is_vip": true,
+        "priority": 3,
+        "sender": "hannah.nelson@abc.corp",
+        "subject": "Churn Notification"
+    },
+    {
+        "body": "Dear Sales Team, I am writing to inquire about your products and services. I am currently in the market for a new software solution and I would like to learn more about your offerings. I have heard great things about your company and I would appreciate it if you could provide me with some more information. I have attached a copy of my requirements for your reference. Please let me know if there is any additional information you need from me. Thank you for your time and consideration. Best regards, Julian Sanchez",
+        "department": "Sales",
+        "id": "email_50",
+        "intent": "general_inquiry",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "julian.sanchez@example.net",
+        "subject": "General Inquiry"
+    },
+    {
+        "body": "Dear Support Team, I am writing to request a password reset for my account. I have tried to reset it myself, but the system is not recognizing my credentials. I would appreciate it if you could assist me with this matter as soon as possible. Best regards, John Doe. Sent from my iPhone",
+        "department": "IT",
+        "id": "email_51",
+        "intent": "routine_password_reset",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "john.doe@example.com",
+        "subject": "Urgent: Password Reset Required"
+    },
+    {
+        "body": "Dear Customer Service, I am writing to request a refund for my recent purchase. The product did not meet my expectations, and I would like to return it. Please let me know the next steps to take. Thank you for your time and assistance. Best regards, Jane Smith",
+        "department": "Customer Service",
+        "id": "email_52",
+        "intent": "angry_client_refund",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "jane.smith@abcinc.com",
+        "subject": "Refund Request for Recent Purchase"
+    },
+    {
+        "body": "Dear IT Team, I am writing to inform you that our server is currently down. This is causing significant disruptions to our business operations, and I request that you take immediate action to resolve the issue. Please keep me updated on the status. Thank you for your prompt attention to this matter. Best regards, Bob Johnson",
+        "department": "IT",
+        "id": "email_53",
+        "intent": "vip_server_outage",
+        "is_vip": true,
+        "priority": 5,
+        "sender": "bob.johnson@xyzcorp.com",
+        "subject": "Server Outage: Urgent Attention Required"
+    },
+    {
+        "body": "Dear Sales Team, I am writing to inquire about your products and services. Could you please provide me with more information about your offerings? I would appreciate it if you could also let me know about any upcoming promotions or discounts. Thank you for your time and assistance. Best regards, Info",
+        "department": "Sales",
+        "id": "email_54",
+        "intent": "general_inquiry",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "info@domain.com",
+        "subject": "General Inquiry about Products"
+    },
+    {
+        "body": "Dear Friend, I am writing to inform you about an amazing opportunity to make money fast! You can earn thousands of dollars from the comfort of your own home. Simply click on the link below to learn more. Best regards, Spam",
+        "department": "None",
+        "id": "email_55",
+        "intent": "spam",
+        "is_vip": false,
+        "priority": 1,
+        "sender": "spam@example.com",
+        "subject": "Make Money Fast!"
+    },
+    {
+        "body": "Dear Accounting Team, I am writing to inform you about a discrepancy in our recent invoice. The amount listed is incorrect, and I would appreciate it if you could look into this matter and correct it as soon as possible. Thank you for your time and assistance. Best regards, Invoice",
+        "department": "Accounting",
+        "id": "email_56",
+        "intent": "invoice_discrepancy",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "invoice@company.com",
+        "subject": "Invoice Discrepancy"
+    },
+    {
+        "body": "Dear HR Team, I am writing to provide you with some sensitive information. Please keep this confidential and do not share it with anyone. Thank you for your discretion. Best regards, HR",
+        "department": "HR",
+        "id": "email_57",
+        "intent": "hr_sensitive",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "hr@example.com",
+        "subject": "Sensitive Information"
+    },
+    {
+        "body": "Dear User, We have noticed that your account has been compromised. Please click on the link below to reset your password and secure your account. Best regards, Phish",
+        "department": "IT",
+        "id": "email_58",
+        "intent": "spear_phishing",
+        "is_vip": false,
+        "priority": 5,
+        "sender": "phish@example.com",
+        "subject": "Your Account Has Been Compromised"
+    },
+    {
+        "body": "Dear Development Team, I am writing to request a new feature for your product. I believe this feature would greatly improve the user experience and would be a valuable addition to your offerings. Thank you for considering my request. Best regards, Feature",
+        "department": "Development",
+        "id": "email_59",
+        "intent": "feature_request",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "feature@example.com",
+        "subject": "Feature Request"
+    },
+    {
+        "body": "Dear Customer Service, I am writing to request cancellation of my subscription. I am no longer satisfied with the service and would like to end my contract. Please let me know the next steps to take. Thank you for your time and assistance. Best regards, Churn",
+        "department": "Customer Service",
+        "id": "email_60",
+        "intent": "mixed_churn",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "churn@example.com",
+        "subject": "Cancellation Request"
+    },
+    {
+        "body": "Dear Support Team, I am writing to request a password reset for my account. I have tried to reset it myself, but the system is not recognizing my credentials. I would appreciate it if you could assist me with this matter as soon as possible. Best regards, John Doe. Sent from my iPhone",
+        "department": "IT",
+        "id": "email_61",
+        "intent": "routine_password_reset",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "john.doe@example.com",
+        "subject": "Urgent: Password Reset Required"
+    },
+    {
+        "body": "Dear Customer Service, I am writing to request a refund for my recent purchase. The product did not meet my expectations, and I would like to return it. Please let me know the next steps to take. Thank you for your time and assistance. Best regards, Jane Smith",
+        "department": "Customer Service",
+        "id": "email_62",
+        "intent": "angry_client_refund",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "jane.smith@abcinc.com",
+        "subject": "Refund Request for Recent Purchase"
+    },
+    {
+        "body": "Dear IT Team, I am writing to inform you that our server is currently down. This is causing significant disruptions to our business operations, and I request that you take immediate action to resolve the issue. Please keep me updated on the status. Thank you for your prompt attention to this matter. Best regards, Bob Johnson",
+        "department": "IT",
+        "id": "email_63",
+        "intent": "vip_server_outage",
+        "is_vip": true,
+        "priority": 5,
+        "sender": "bob.johnson@xyzcorp.com",
+        "subject": "Server Outage: Urgent Attention Required"
+    },
+    {
+        "body": "Dear Sales Team, I am writing to inquire about your products and services. Could you please provide me with more information about your offerings? I would appreciate it if you could also let me know about any upcoming promotions or discounts. Thank you for your time and assistance. Best regards, Info",
+        "department": "Sales",
+        "id": "email_64",
+        "intent": "general_inquiry",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "info@domain.com",
+        "subject": "General Inquiry about Products"
+    },
+    {
+        "body": "Dear Friend, I am writing to inform you about an amazing opportunity to make money fast! You can earn thousands of dollars from the comfort of your own home. Simply click on the link below to learn more. Best regards, Spam",
+        "department": "None",
+        "id": "email_65",
+        "intent": "spam",
+        "is_vip": false,
+        "priority": 1,
+        "sender": "spam@example.com",
+        "subject": "Make Money Fast!"
+    },
+    {
+        "body": "Dear Accounting Team, I am writing to inform you about a discrepancy in our recent invoice. The amount listed is incorrect, and I would appreciate it if you could look into this matter and correct it as soon as possible. Thank you for your time and assistance. Best regards, Invoice",
+        "department": "Accounting",
+        "id": "email_66",
+        "intent": "invoice_discrepancy",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "invoice@company.com",
+        "subject": "Invoice Discrepancy"
+    },
+    {
+        "body": "Dear HR Team, I am writing to provide you with some sensitive information. Please keep this confidential and do not share it with anyone. Thank you for your discretion. Best regards, HR",
+        "department": "HR",
+        "id": "email_67",
+        "intent": "hr_sensitive",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "hr@example.com",
+        "subject": "Sensitive Information"
+    },
+    {
+        "body": "Dear User, We have noticed that your account has been compromised. Please click on the link below to reset your password and secure your account. Best regards, Phish",
+        "department": "IT",
+        "id": "email_68",
+        "intent": "spear_phishing",
+        "is_vip": false,
+        "priority": 5,
+        "sender": "phish@example.com",
+        "subject": "Your Account Has Been Compromised"
+    },
+    {
+        "body": "Dear Development Team, I am writing to request a new feature for your product. I believe this feature would greatly improve the user experience and would be a valuable addition to your offerings. Thank you for considering my request. Best regards, Feature",
+        "department": "Development",
+        "id": "email_69",
+        "intent": "feature_request",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "feature@example.com",
+        "subject": "Feature Request"
+    },
+    {
+        "body": "Dear Customer Service, I am writing to request cancellation of my subscription. I am no longer satisfied with the service and would like to end my contract. Please let me know the next steps to take. Thank you for your time and assistance. Best regards, Churn",
+        "department": "Customer Service",
+        "id": "email_70",
+        "intent": "mixed_churn",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "churn@example.com",
+        "subject": "Cancellation Request"
+    },
+    {
+        "body": "Dear Support Team, I am writing to request a password reset for my account. I have tried to reset it myself, but the system is not recognizing my credentials. I would appreciate it if you could assist me with this matter as soon as possible. Best regards, John Doe. Sent from my iPhone",
+        "department": "IT",
+        "id": "email_71",
+        "intent": "routine_password_reset",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "john.doe@example.com",
+        "subject": "Urgent: Password Reset Required"
+    },
+    {
+        "body": "Dear Customer Service, I am writing to request a refund for my recent purchase. The product did not meet my expectations, and I would like to return it. Please let me know the next steps to take. Thank you for your time and assistance. Best regards, Jane Smith",
+        "department": "Customer Service",
+        "id": "email_72",
+        "intent": "angry_client_refund",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "jane.smith@abcinc.com",
+        "subject": "Refund Request for Recent Purchase"
+    },
+    {
+        "body": "Dear IT Team, I am writing to inform you that our server is currently down. This is causing significant disruptions to our business operations, and I request that you take immediate action to resolve the issue. Please keep me updated on the status. Thank you for your prompt attention to this matter. Best regards, Bob Johnson",
+        "department": "IT",
+        "id": "email_73",
+        "intent": "vip_server_outage",
+        "is_vip": true,
+        "priority": 5,
+        "sender": "bob.johnson@xyzcorp.com",
+        "subject": "Server Outage: Urgent Attention Required"
+    },
+    {
+        "body": "Dear Sales Team, I am writing to inquire about your products and services. Could you please provide me with more information about your offerings? I would appreciate it if you could also let me know about any upcoming promotions or discounts. Thank you for your time and assistance. Best regards, Info",
+        "department": "Sales",
+        "id": "email_74",
+        "intent": "general_inquiry",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "info@domain.com",
+        "subject": "General Inquiry about Products"
+    },
+    {
+        "body": "Dear Friend, I am writing to inform you about an amazing opportunity to make money fast! You can earn thousands of dollars from the comfort of your own home. Simply click on the link below to learn more. Best regards, Spam",
+        "department": "None",
+        "id": "email_75",
+        "intent": "spam",
+        "is_vip": false,
+        "priority": 1,
+        "sender": "spam@example.com",
+        "subject": "Make Money Fast!"
+    },
+    {
+        "body": "Dear Team, I hope this email finds you well. I am writing to request a meeting to discuss our quarterly sales projections. As you are aware, our sales have been sluggish over the past few months and I believe it is essential that we review our strategy to ensure we are on track to meet our annual targets. I have attached a detailed report outlining our current sales performance and have highlighted areas where I believe we can improve. I would appreciate the opportunity to discuss this report with you in more detail and explore ways in which we can work together to drive sales growth. Please let me know a time that suits you and I will make sure to schedule it accordingly. Best regards, John Doe. Sent from my iPhone",
+        "department": "Sales",
+        "id": "email_76",
+        "intent": "routine_password_reset",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "john.doe@example.com",
+        "subject": "Request for Meeting to Discuss Quarterly Sales Projections"
+    },
+    {
+        "body": "Dear IT Team, I am writing to inform you that our server is currently down and is affecting our critical business operations. I have tried to troubleshoot the issue but have been unable to resolve it. I urgently require your assistance to get the server back up and running as soon as possible. Please let me know if you are available to assist me and if so, we can schedule a time to work on it together. I appreciate your prompt attention to this matter as it is having a significant impact on our business. Thank you for your help. Best regards, Jane Smith. Confidentiality Notice: This email is intended only for the use of the individual or entity to which it is addressed and may contain confidential and privileged information.",
+        "department": "IT",
+        "id": "email_77",
+        "intent": "vip_server_outage",
+        "is_vip": true,
+        "priority": 5,
+        "sender": "jane.smith@fortunecorporation.com",
+        "subject": "Urgent: Server Outage Affecting Critical Business Operations"
+    },
+    {
+        "body": "Dear Sir/Madam, I am writing to inquire about your company's products and services. I came across your website while browsing the internet and was impressed by the range of products you offer. I would like to know more about your company and what you can offer me. Could you please send me some information about your products and services? I would appreciate it if you could also include any relevant brochures or catalogs. Thank you for your time and I look forward to hearing from you. Best regards, Bob Johnson",
+        "department": "Customer Service",
+        "id": "email_78",
+        "intent": "general_inquiry",
+        "is_vip": false,
+        "priority": 1,
+        "sender": "bob.johnson@example.com",
+        "subject": "Inquiry about Company Products and Services"
+    },
+    {
+        "body": "Dear Friend, Are you tired of living paycheck to paycheck? Do you want to make extra money from the comfort of your own home? We have the solution for you! Our proven system will show you how to make thousands of dollars per week. Don't wait any longer, sign up now and start making the money you deserve. Click here to learn more. Best regards, Spam",
+        "department": "Spam",
+        "id": "email_79",
+        "intent": "spam",
+        "is_vip": false,
+        "priority": 1,
+        "sender": "spam@example.com",
+        "subject": "Make Money Fast!"
+    },
+    {
+        "body": "Dear HR Team, I am writing to bring to your attention a sensitive matter regarding one of our employees. I have been made aware of a situation that requires our immediate attention and I believe it would be best to discuss this in person. Could we schedule a meeting to discuss this further? I appreciate your discretion in this matter and please let me know a time that suits you. Best regards, Mike Davis. Confidentiality Notice: This email is intended only for the use of the individual or entity to which it is addressed and may contain confidential and privileged information.",
+        "department": "HR",
+        "id": "email_80",
+        "intent": "hr_sensitive",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "mike.davis@hrdepartment.com",
+        "subject": "Sensitive Information Regarding Employee"
+    },
+    {
+        "body": "Dear Development Team, I am writing to request a feature enhancement to our current software. I have been using the software for some time now and have found it to be very useful, but I believe that with a few tweaks, it could be even more effective. I have attached a document outlining my suggestions and would appreciate it if you could consider them. I believe that these changes would not only benefit me, but also other users of the software. Thank you for your time and consideration. Best regards, Sophia Lee",
+        "department": "Development",
+        "id": "email_81",
+        "intent": "feature_request",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "sophia.lee@example.com",
+        "subject": "Request for Feature Enhancement"
+    },
+    {
+        "body": "Dear Account Manager, I am writing to inform you that I will be cancelling my subscription to your service. I have been a loyal customer for some time, but unfortunately, I have found that your service no longer meets my needs. I appreciate the service you have provided, but I must explore other options. Please let me know what steps I need to take to cancel my subscription. Thank you for your understanding. Best regards, Kevin White",
+        "department": "Account Management",
+        "id": "email_82",
+        "intent": "mixed_churn",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "kevin.white@example.com",
+        "subject": "Notification of Churn"
+    },
+    {
+        "body": "Dear Customer Service, I am writing to request a refund for my recent purchase. I was not satisfied with the product and would like to return it. I have attached a copy of my receipt and would appreciate it if you could process my refund as soon as possible. I have tried to contact you via phone, but was unable to get through. I hope you can assist me with this matter. Thank you for your time. Best regards, Emily Chen",
+        "department": "Customer Service",
+        "id": "email_83",
+        "intent": "angry_client_refund",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "emily.chen@example.com",
+        "subject": "Refund Request"
+    },
+    {
+        "body": "Dear Accounting Team, I am writing to bring to your attention a discrepancy in my recent invoice. I have reviewed the invoice and believe that there is an error in the amount I was charged. I have attached a copy of the invoice and would appreciate it if you could look into this matter and correct the error. I would like to request a revised invoice that reflects the correct amount. Thank you for your time and assistance. Best regards, David Kim",
+        "department": "Accounting",
+        "id": "email_84",
+        "intent": "invoice_discrepancy",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "david.kim@example.com",
+        "subject": "Invoice Discrepancy"
+    },
+    {
+        "body": "Dear User, We have noticed that your account has been compromised and we require you to verify your account information. Please click on the link below to verify your account. If you do not verify your account, it will be suspended. Click here to verify your account. Best regards, Olivia Brown",
+        "department": "Security",
+        "id": "email_85",
+        "intent": "spear_phishing",
+        "is_vip": false,
+        "priority": 5,
+        "sender": "olivia.brown@example.com",
+        "subject": "Phishing Attempt"
+    },
+    {
+        "body": "Dear User, Your password has expired and needs to be reset. Please click on the link below to reset your password. If you have any issues, please contact our support team. Click here to reset your password. Best regards, William Davis",
+        "department": "IT",
+        "id": "email_86",
+        "intent": "routine_password_reset",
+        "is_vip": false,
+        "priority": 1,
+        "sender": "william.davis@example.com",
+        "subject": "Routine Password Reset"
+    },
+    {
+        "body": "Dear Sir/Madam, I am writing to inquire about your company. I am interested in learning more about your products and services. Could you please send me some information about your company? I would appreciate it if you could also include any relevant brochures or catalogs. Thank you for your time. Best regards, James Wilson",
+        "department": "Customer Service",
+        "id": "email_87",
+        "intent": "general_inquiry",
+        "is_vip": false,
+        "priority": 1,
+        "sender": "james.wilson@example.com",
+        "subject": "General Inquiry about Company"
+    },
+    {
+        "body": "Dear IT Team, I am writing to inform you that our server is currently down and is affecting our critical business operations. I have tried to troubleshoot the issue but have been unable to resolve it. I urgently require your assistance to get the server back up and running as soon as possible. Please let me know if you are available to assist me and if so, we can schedule a time to work on it together. I appreciate your prompt attention to this matter as it is having a significant impact on our business. Thank you for your help. Best regards, Karen Thompson. Confidentiality Notice: This email is intended only for the use of the individual or entity to which it is addressed and may contain confidential and privileged information.",
+        "department": "IT",
+        "id": "email_88",
+        "intent": "vip_server_outage",
+        "is_vip": true,
+        "priority": 5,
+        "sender": "karen.thompson@example.com",
+        "subject": "VIP Server Outage"
+    },
+    {
+        "body": "Dear Development Team, I am writing to request a feature enhancement to our current software. I have been using the software for some time now and have found it to be very useful, but I believe that with a few tweaks, it could be even more effective. I have attached a document outlining my suggestions and would appreciate it if you could consider them. I believe that these changes would not only benefit me, but also other users of the software. Thank you for your time and consideration. Best regards, Rachel Lee",
+        "department": "Development",
+        "id": "email_89",
+        "intent": "feature_request",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "rachel.lee@example.com",
+        "subject": "Feature Request"
+    },
+    {
+        "body": "Dear Account Manager, I am writing to inform you that I will be cancelling my subscription to your service. I have been a loyal customer for some time, but unfortunately, I have found that your service no longer meets my needs. I appreciate the service you have provided, but I must explore other options. Please let me know what steps I need to take to cancel my subscription. Thank you for your understanding. Best regards, Christopher Martin",
+        "department": "Account Management",
+        "id": "email_90",
+        "intent": "mixed_churn",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "christopher.martin@example.com",
+        "subject": "Mixed Churn"
+    },
+    {
+        "body": "Dear Customer Service, I am writing to request a refund for my recent purchase. I was not satisfied with the product and would like to return it. I have attached a copy of my receipt and would appreciate it if you could process my refund as soon as possible. I have tried to contact you via phone, but was unable to get through. I hope you can assist me with this matter. Thank you for your time. Best regards, Lauren Hall",
+        "department": "Customer Service",
+        "id": "email_91",
+        "intent": "angry_client_refund",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "lauren.hall@example.com",
+        "subject": "Refund Request"
+    },
+    {
+        "body": "Dear Accounting Team, I am writing to bring to your attention a discrepancy in my recent invoice. I have reviewed the invoice and believe that there is an error in the amount I was charged. I have attached a copy of the invoice and would appreciate it if you could look into this matter and correct the error. I would like to request a revised invoice that reflects the correct amount. Thank you for your time and assistance. Best regards, Brian Scott",
+        "department": "Accounting",
+        "id": "email_92",
+        "intent": "invoice_discrepancy",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "brian.scott@example.com",
+        "subject": "Invoice Discrepancy"
+    },
+    {
+        "body": "Dear User, We have noticed that your account has been compromised and we require you to verify your account information. Please click on the link below to verify your account. If you do not verify your account, it will be suspended. Click here to verify your account. Best regards, Heather Parker",
+        "department": "Security",
+        "id": "email_93",
+        "intent": "spear_phishing",
+        "is_vip": false,
+        "priority": 5,
+        "sender": "heather.parker@example.com",
+        "subject": "Phishing Attempt"
+    },
+    {
+        "body": "Dear User, Your password has expired and needs to be reset. Please click on the link below to reset your password. If you have any issues, please contact our support team. Click here to reset your password. Best regards, Eric Fisher",
+        "department": "IT",
+        "id": "email_94",
+        "intent": "routine_password_reset",
+        "is_vip": false,
+        "priority": 1,
+        "sender": "eric.fisher@example.com",
+        "subject": "Routine Password Reset"
+    },
+    {
+        "body": "Dear Sir/Madam, I am writing to inquire about your company. I am interested in learning more about your products and services. Could you please send me some information about your company? I would appreciate it if you could also include any relevant brochures or catalogs. Thank you for your time. Best regards, Sandra Jenkins",
+        "department": "Customer Service",
+        "id": "email_95",
+        "intent": "general_inquiry",
+        "is_vip": false,
+        "priority": 1,
+        "sender": "sandra.jenkins@example.com",
+        "subject": "General Inquiry about Company"
+    },
+    {
+        "body": "Dear IT Team, I am writing to inform you that our server is currently down and is affecting our critical business operations. I have tried to troubleshoot the issue but have been unable to resolve it. I urgently require your assistance to get the server back up and running as soon as possible. Please let me know if you are available to assist me and if so, we can schedule a time to work on it together. I appreciate your prompt attention to this matter as it is having a significant impact on our business. Thank you for your help. Best regards, Diana Russell. Confidentiality Notice: This email is intended only for the use of the individual or entity to which it is addressed and may contain confidential and privileged information.",
+        "department": "IT",
+        "id": "email_96",
+        "intent": "vip_server_outage",
+        "is_vip": true,
+        "priority": 5,
+        "sender": "diana.russell@example.com",
+        "subject": "VIP Server Outage"
+    },
+    {
+        "body": "Dear Development Team, I am writing to request a feature enhancement to our current software. I have been using the software for some time now and have found it to be very useful, but I believe that with a few tweaks, it could be even more effective. I have attached a document outlining my suggestions and would appreciate it if you could consider them. I believe that these changes would not only benefit me, but also other users of the software. Thank you for your time and consideration. Best regards, Mathew Price",
+        "department": "Development",
+        "id": "email_97",
+        "intent": "feature_request",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "mathew.price@example.com",
+        "subject": "Feature Request"
+    },
+    {
+        "body": "Dear Account Manager, I am writing to inform you that I will be cancelling my subscription to your service. I have been a loyal customer for some time, but unfortunately, I have found that your service no longer meets my needs. I appreciate the service you have provided, but I must explore other options. Please let me know what steps I need to take to cancel my subscription. Thank you for your understanding. Best regards, Amanda Brooks",
+        "department": "Account Management",
+        "id": "email_98",
+        "intent": "mixed_churn",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "amanda.brooks@example.com",
+        "subject": "Mixed Churn"
+    },
+    {
+        "body": "Dear Customer Service, I am writing to request a refund for my recent purchase. I was not satisfied with the product and would like to return it. I have attached a copy of my receipt and would appreciate it if you could process my refund as soon as possible. I have tried to contact you via phone, but was unable to get through. I hope you can assist me with this matter. Thank you for your time. Best regards, Stephen Jackson",
+        "department": "Customer Service",
+        "id": "email_99",
+        "intent": "angry_client_refund",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "stephen.jackson@example.com",
+        "subject": "Refund Request"
+    },
+    {
+        "body": "Dear Accounting Team, I am writing to bring to your attention a discrepancy in my recent invoice. I have reviewed the invoice and believe that there is an error in the amount I was charged. I have attached a copy of the invoice and would appreciate it if you could look into this matter and correct the error. I would like to request a revised invoice that reflects the correct amount. Thank you for your time and assistance. Best regards, Nicole Garcia",
+        "department": "Accounting",
+        "id": "email_100",
+        "intent": "invoice_discrepancy",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "nicole.garcia@example.com",
+        "subject": "Invoice Discrepancy"
+    },
+    {
+        "body": "Dear Team, I am writing to inform you that my password has expired and I am having trouble resetting it. I have tried the forgot password feature, but it is not working for me. Can someone please assist me with this? I am getting an error message that says my account is locked due to too many failed attempts. I am not sure what is going on. Can we please discuss this further? Best, John Smith. Sent from my iPhone",
+        "department": "IT",
+        "id": "email_126",
+        "intent": "routine_password_reset",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "john.smith@example.com",
+        "subject": "Urgent: Password Reset Required"
+    },
+    {
+        "body": "Dear Customer Service, I am writing to request a refund for my recent purchase. I am not satisfied with the product and would like to return it. Can you please let me know the next steps? I have attached a copy of my receipt to this email. Please note that this email is confidential and should not be shared with anyone. Thank you for your prompt attention to this matter. Best, Jane Doe. Confidentiality Disclaimer: This email is intended only for the use of the individual or entity to which it is addressed and may contain confidential and/or privileged information.",
+        "department": "Customer Service",
+        "id": "email_127",
+        "intent": "angry_client_refund",
+        "is_vip": true,
+        "priority": 4,
+        "sender": "jane.doe@fortune500.com",
+        "subject": "Refund Request for Recent Purchase"
+    },
+    {
+        "body": "Dear Team, I am writing to inform you that our server is currently down. We are working to resolve the issue as quickly as possible. In the meantime, please try to avoid using the system. I will keep you updated on the status. Thank you for your patience. Best, Bob Johnson. Sent from my iPad",
+        "department": "IT",
+        "id": "email_128",
+        "intent": "vip_server_outage",
+        "is_vip": false,
+        "priority": 5,
+        "sender": "bob.johnson@example.com",
+        "subject": "Server Outage Notification"
+    },
+    {
+        "body": "Dear Team, I am writing to inquire about your company. I am interested in learning more about your products and services. Can you please send me some information? I would appreciate it if you could also let me know about any job openings. Thank you for your time. Best, Alice Brown",
+        "department": "HR",
+        "id": "email_129",
+        "intent": "general_inquiry",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "alice.brown@example.com",
+        "subject": "General Inquiry"
+    },
+    {
+        "body": "Dear Friend, I am writing to inform you of an amazing opportunity to make money fast! All you need to do is click on the link below and follow the instructions. You will be rich in no time! Don't miss out on this incredible chance. Best, Spam Bot",
+        "department": "None",
+        "id": "email_130",
+        "intent": "spam",
+        "is_vip": false,
+        "priority": 1,
+        "sender": "spam@example.com",
+        "subject": "Make Money Fast!"
+    },
+    {
+        "body": "Dear Accounting, I am writing to inform you of a discrepancy in my recent invoice. I was charged for a product that I did not order. Can you please look into this and correct the issue? I have attached a copy of the invoice to this email. Thank you for your prompt attention to this matter. Best, Mike Davis",
+        "department": "Accounting",
+        "id": "email_131",
+        "intent": "invoice_discrepancy",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "mike.davis@example.com",
+        "subject": "Invoice Discrepancy"
+    },
+    {
+        "body": "Dear HR, I am writing to inform you of a sensitive issue that requires your attention. I have been experiencing harassment in the workplace and would like to request your assistance in resolving the matter. Please keep this email confidential. Thank you for your understanding. Best, Emily Chen. Confidentiality Disclaimer: This email is intended only for the use of the individual or entity to which it is addressed and may contain confidential and/or privileged information.",
+        "department": "HR",
+        "id": "email_132",
+        "intent": "hr_sensitive",
+        "is_vip": false,
+        "priority": 5,
+        "sender": "emily.chen@example.com",
+        "subject": "HR Sensitive Information"
+    },
+    {
+        "body": "Dear User, I am writing to inform you that your account has been compromised. Please click on the link below to reset your password. If you do not reset your password, your account will be deleted. Best, David Lee",
+        "department": "IT",
+        "id": "email_133",
+        "intent": "spear_phishing",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "david.lee@example.com",
+        "subject": "Phishing Attempt"
+    },
+    {
+        "body": "Dear Development Team, I am writing to request a new feature for your product. I would like to be able to customize the layout of the dashboard. Can you please let me know if this is something that can be implemented? I would appreciate it if you could also provide a timeline for when this feature will be available. Thank you for your time. Best, Sarah Taylor",
+        "department": "Development",
+        "id": "email_134",
+        "intent": "feature_request",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "sarah.taylor@example.com",
+        "subject": "Feature Request"
+    },
+    {
+        "body": "Dear Team, I am writing to inform you that I will be leaving the company. I am providing you with notice as per our company's policy. I will do my best to ensure a smooth transition of my responsibilities. Thank you for your understanding. Best, Kevin Brown",
+        "department": "HR",
+        "id": "email_135",
+        "intent": "mixed_churn",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "kevin.brown@example.com",
+        "subject": "Mixed Churn"
+    },
+    {
+        "body": "Dear IT, I am writing to request a password reset. I have forgotten my password and am unable to access the system. Can you please assist me with this? I would appreciate it if you could also provide me with instructions on how to change my password. Thank you for your time. Best, Olivia Martin",
+        "department": "IT",
+        "id": "email_136",
+        "intent": "routine_password_reset",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "olivia.martin@example.com",
+        "subject": "Routine Password Reset"
+    },
+    {
+        "body": "Dear Customer Service, I am writing to request a refund for my recent purchase. I am not satisfied with the product and would like to return it. Can you please let me know the next steps? I have attached a copy of my receipt to this email. Please note that this email is confidential and should not be shared with anyone. Thank you for your prompt attention to this matter. Best, Charlotte Harris. Confidentiality Disclaimer: This email is intended only for the use of the individual or entity to which it is addressed and may contain confidential and/or privileged information.",
+        "department": "Customer Service",
+        "id": "email_137",
+        "intent": "angry_client_refund",
+        "is_vip": true,
+        "priority": 5,
+        "sender": "charlotte.harris@example.com",
+        "subject": "Angry Client Refund"
+    },
+    {
+        "body": "Dear Team, I am writing to inform you that our server is currently down. We are working to resolve the issue as quickly as possible. In the meantime, please try to avoid using the system. I will keep you updated on the status. Thank you for your patience. Best, William White. Sent from my iPhone",
+        "department": "IT",
+        "id": "email_138",
+        "intent": "vip_server_outage",
+        "is_vip": true,
+        "priority": 5,
+        "sender": "william.white@example.com",
+        "subject": "VIP Server Outage"
+    },
+    {
+        "body": "Dear Team, I am writing to inquire about your company. I am interested in learning more about your products and services. Can you please send me some information? I would appreciate it if you could also let me know about any job openings. Thank you for your time. Best, Amanda Davis",
+        "department": "HR",
+        "id": "email_139",
+        "intent": "general_inquiry",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "amanda.davis@example.com",
+        "subject": "General Inquiry"
+    },
+    {
+        "body": "Dear Friend, I am writing to inform you of an amazing opportunity to make money fast! All you need to do is click on the link below and follow the instructions. You will be rich in no time! Don't miss out on this incredible chance. Best, Spam Bot",
+        "department": "None",
+        "id": "email_140",
+        "intent": "spam",
+        "is_vip": false,
+        "priority": 1,
+        "sender": "spammer@example.com",
+        "subject": "Make Money Fast!"
+    },
+    {
+        "body": "Dear Accounting, I am writing to inform you of a discrepancy in my recent invoice. I was charged for a product that I did not order. Can you please look into this and correct the issue? I have attached a copy of the invoice to this email. Thank you for your prompt attention to this matter. Best, Sophia Lee",
+        "department": "Accounting",
+        "id": "email_141",
+        "intent": "invoice_discrepancy",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "sophia.lee@example.com",
+        "subject": "Invoice Discrepancy"
+    },
+    {
+        "body": "Dear HR, I am writing to inform you of a sensitive issue that requires your attention. I have been experiencing harassment in the workplace and would like to request your assistance in resolving the matter. Please keep this email confidential. Thank you for your understanding. Best, Jackson Brown. Confidentiality Disclaimer: This email is intended only for the use of the individual or entity to which it is addressed and may contain confidential and/or privileged information.",
+        "department": "HR",
+        "id": "email_142",
+        "intent": "hr_sensitive",
+        "is_vip": false,
+        "priority": 5,
+        "sender": "jackson.brown@example.com",
+        "subject": "HR Sensitive Information"
+    },
+    {
+        "body": "Dear User, I am writing to inform you that your account has been compromised. Please click on the link below to reset your password. If you do not reset your password, your account will be deleted. Best, Emily Patel",
+        "department": "IT",
+        "id": "email_143",
+        "intent": "spear_phishing",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "emily.patel@example.com",
+        "subject": "Phishing Attempt"
+    },
+    {
+        "body": "Dear Development Team, I am writing to request a new feature for your product. I would like to be able to customize the layout of the dashboard. Can you please let me know if this is something that can be implemented? I would appreciate it if you could also provide a timeline for when this feature will be available. Thank you for your time. Best, Michael Kim",
+        "department": "Development",
+        "id": "email_144",
+        "intent": "feature_request",
+        "is_vip": false,
+        "priority": 3,
+        "sender": "michael.kim@example.com",
+        "subject": "Feature Request"
+    },
+    {
+        "body": "Dear Team, I am writing to inform you that I will be leaving the company. I am providing you with notice as per our company's policy. I will do my best to ensure a smooth transition of my responsibilities. Thank you for your understanding. Best, Daniel Hall",
+        "department": "HR",
+        "id": "email_145",
+        "intent": "mixed_churn",
+        "is_vip": false,
+        "priority": 4,
+        "sender": "daniel.hall@example.com",
+        "subject": "Mixed Churn"
+    },
+    {
+        "body": "Dear IT, I am writing to request a password reset. I have forgotten my password and am unable to access the system. Can you please assist me with this? I would appreciate it if you could also provide me with instructions on how to change my password. Thank you for your time. Best, Lauren Martin",
+        "department": "IT",
+        "id": "email_146",
+        "intent": "routine_password_reset",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "lauren.martin@example.com",
+        "subject": "Routine Password Reset"
+    },
+    {
+        "body": "Dear Customer Service, I am writing to request a refund for my recent purchase. I am not satisfied with the product and would like to return it. Can you please let me know the next steps? I have attached a copy of my receipt to this email. Please note that this email is confidential and should not be shared with anyone. Thank you for your prompt attention to this matter. Best, Christopher Taylor. Confidentiality Disclaimer: This email is intended only for the use of the individual or entity to which it is addressed and may contain confidential and/or privileged information.",
+        "department": "Customer Service",
+        "id": "email_147",
+        "intent": "angry_client_refund",
+        "is_vip": true,
+        "priority": 5,
+        "sender": "christopher.taylor@example.com",
+        "subject": "Angry Client Refund"
+    },
+    {
+        "body": "Dear Team, I am writing to inform you that our server is currently down. We are working to resolve the issue as quickly as possible. In the meantime, please try to avoid using the system. I will keep you updated on the status. Thank you for your patience. Best, Rebecca Garcia. Sent from my iPad",
+        "department": "IT",
+        "id": "email_148",
+        "intent": "vip_server_outage",
+        "is_vip": true,
+        "priority": 5,
+        "sender": "rebecca.garcia@example.com",
+        "subject": "VIP Server Outage"
+    },
+    {
+        "body": "Dear Team, I am writing to inquire about your company. I am interested in learning more about your products and services. Can you please send me some information? I would appreciate it if you could also let me know about any job openings. Thank you for your time. Best, Nicole Miller",
+        "department": "HR",
+        "id": "email_149",
+        "intent": "general_inquiry",
+        "is_vip": false,
+        "priority": 2,
+        "sender": "nicole.miller@example.com",
+        "subject": "General Inquiry"
+    },
+    {
+        "body": "Dear Friend, I am writing to inform you of an amazing opportunity to make money fast! All you need to do is click on the link below and follow the instructions. You will be rich in no time! Don't miss out on this incredible chance. Best, Brian Moore",
+        "department": "None",
+        "id": "email_150",
+        "intent": "spam",
+        "is_vip": false,
+        "priority": 1,
+        "sender": "brian.moore@example.com",
+        "subject": "Make Money Fast!"
+    }
+]
