@@ -165,6 +165,50 @@ The environment includes sophisticated edge cases to test AI decision-making:
 - **Customer Retention**: Uses clarification for ambiguous churn scenarios
 - **Automation Efficiency**: Safely auto-replies to feature requests
 
+## Docker Deployment
+
+### Quick Start with Docker
+
+```bash
+# Build and run with Docker Compose
+docker-compose up --build
+
+# Or build and run manually
+docker build -t email-triage .
+docker run -p 8501:8501 -e OPENAI_API_KEY=your_key email-triage
+```
+
+### Docker Configuration
+
+The project includes:
+- **Dockerfile**: Multi-stage build with Python 3.11 slim
+- **docker-compose.yml**: Full stack with Redis caching
+- **.dockerignore**: Optimized build context
+- **.env.example**: Environment variables template
+
+### Environment Setup
+
+```bash
+# Copy environment template
+cp .env.example .env
+
+# Edit with your API key
+nano .env
+```
+
+### Production Deployment
+
+```bash
+# Production mode
+docker-compose -f docker-compose.yml up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop services
+docker-compose down
+```
+
 ## Testing
 
 Run comprehensive test suite:
