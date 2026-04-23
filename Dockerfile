@@ -4,8 +4,8 @@ WORKDIR /app
 
 RUN pip install streamlit
 
-COPY minimal_app.py app.py
+COPY app.py .
 
 EXPOSE 7860
 
-CMD ["streamlit", "run", "app.py", "--server.port=7860"]
+CMD ["streamlit", "run", "app.py", "--server.port=7860", "--server.address=0.0.0.0"]

@@ -1,3 +1,14 @@
+---
+title: Enterprise Email Triage Simulator
+emoji: 📧
+colorFrom: blue
+colorTo: purple
+sdk: docker
+pinned: false
+license: mit
+app_port: 7860
+---
+
 # Enterprise Email Triage Simulator
 
 OpenEnv-compliant RL environment for Meta PyTorch Hackathon - Theme 3.1: Professional Tasks (Enterprise Workflows)
