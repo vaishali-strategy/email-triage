@@ -28,4 +28,4 @@ jobs:
           git remote add hf https://$HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/$HF_USERNAME/$SPACE_NAME
           
           # Push to Hugging Face Spaces
-          git push hf main --force
+          git push hf master:main --force
