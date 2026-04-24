@@ -14,20 +14,25 @@ def configure_api_key():
     """Configure API key for AI services"""
     st.sidebar.markdown("## 🔑 API Configuration")
     
-    # Check for environment variable first
-    api_key = os.getenv("OPENAI_API_KEY")
+    # Initialize session state for API key
+    if 'openai_api_key' not in st.session_state:
+        st.session_state.openai_api_key = os.getenv("OPENAI_API_KEY", "")
     
-    if not api_key:
-        api_key = st.sidebar.text_input(
-            "Enter OpenAI API Key:",
-            type="password",
-            placeholder="sk-...",
-            help="Enter your OpenAI API key to enable AI-powered email triage"
-        )
+    # API key input
+    api_key = st.sidebar.text_input(
+        "Enter OpenAI API Key:",
+        type="password",
+        value=st.session_state.openai_api_key,
+        placeholder="sk-...",
+        help="Enter your OpenAI API key to enable AI-powered email triage"
+    )
+    
+    # Update session state if key changed
+    if api_key != st.session_state.openai_api_key:
+        st.session_state.openai_api_key = api_key
     
     if api_key:
         st.sidebar.success("✅ API Key configured")
-        openai.api_key = api_key
         return True
     else:
         st.sidebar.warning("⚠️ API Key required for AI features")
@@ -261,7 +266,7 @@ def main():
                 
                 if st.button("Get AI Recommendation", type="primary"):
                     with st.spinner("AI is analyzing..."):
-                        api_key = st.sidebar.text_input("Enter OpenAI API Key:", type="password") or os.getenv("OPENAI_API_KEY")
+                        api_key = st.session_state.openai_api_key
                         if api_key:
                             ai_decision = get_ai_decision(email, api_key)
                             if ai_decision:
