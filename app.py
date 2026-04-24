@@ -5,6 +5,7 @@ import time
 import os
 from typing import Dict, Any
 import openai
+from groq import Groq
 
 # Set page config
 st.set_page_config(page_title="Enterprise Email Triage", page_icon="📧", layout="wide")
@@ -14,34 +15,46 @@ def configure_api_key():
     """Configure API key for AI services"""
     st.sidebar.markdown("## 🔑 API Configuration")
     
-    # Initialize session state for API key
-    if 'openai_api_key' not in st.session_state:
-        st.session_state.openai_api_key = os.getenv("OPENAI_API_KEY", "")
+    # Initialize session state for API keys
+    if 'api_key' not in st.session_state:
+        st.session_state.api_key = os.getenv("OPENAI_API_KEY") or os.getenv("GROQ_API_KEY", "")
     
-    # API key input
+    # API key input with auto-detection
     api_key = st.sidebar.text_input(
-        "Enter OpenAI API Key:",
+        "Enter API Key (OpenAI or Groq):",
         type="password",
-        value=st.session_state.openai_api_key,
-        placeholder="sk-...",
-        help="Enter your OpenAI API key to enable AI-powered email triage"
+        value=st.session_state.api_key,
+        placeholder="sk-... or gsk_...",
+        help="Enter your OpenAI (sk-) or Groq (gsk_) API key"
     )
     
     # Update session state if key changed
-    if api_key != st.session_state.openai_api_key:
-        st.session_state.openai_api_key = api_key
+    if api_key != st.session_state.api_key:
+        st.session_state.api_key = api_key
     
+    # Detect API provider
     if api_key:
-        st.sidebar.success("✅ API Key configured")
+        if api_key.startswith("gsk_"):
+            provider = "Groq"
+            st.session_state.api_provider = "groq"
+        elif api_key.startswith("sk-"):
+            provider = "OpenAI"
+            st.session_state.api_provider = "openai"
+        else:
+            provider = "Unknown"
+            st.session_state.api_provider = "unknown"
+        
+        st.sidebar.success(f"✅ {provider} API Key configured")
         return True
     else:
         st.sidebar.warning("⚠️ API Key required for AI features")
         return False
 
 def get_ai_decision(email: Dict[str, Any], api_key: str) -> Dict[str, Any]:
-    """Get AI decision for email triage using OpenAI"""
+    """Get AI decision for email triage using OpenAI or Groq"""
     try:
-        client = openai.OpenAI(api_key=api_key)
+        # Determine which API to use
+        provider = st.session_state.get('api_provider', 'openai')
         
         prompt = f"""
 You are an AI email triage assistant. Analyze the following email and decide the best action:
@@ -72,12 +85,24 @@ Respond with JSON format:
 }}
 """
 
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.3,
-            max_tokens=200
-        )
+        if provider == "groq":
+            # Use Groq API
+            client = Groq(api_key=api_key)
+            response = client.chat.completions.create(
+                model="llama-3.1-8b-instant",
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.3,
+                max_tokens=200
+            )
+        else:
+            # Use OpenAI API
+            client = openai.OpenAI(api_key=api_key)
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.3,
+                max_tokens=200
+            )
         
         decision_text = response.choices[0].message.content.strip()
         return json.loads(decision_text)
@@ -266,7 +291,7 @@ def main():
                 
                 if st.button("Get AI Recommendation", type="primary"):
                     with st.spinner("AI is analyzing..."):
-                        api_key = st.session_state.openai_api_key
+                        api_key = st.session_state.api_key
                         if api_key:
                             ai_decision = get_ai_decision(email, api_key)
                             if ai_decision:
