@@ -6,33 +6,35 @@ import os
 from typing import Dict, Any
 import openai
 from groq import Groq
+from reward_system import reward_system
 
 # Set page config
 st.set_page_config(page_title="Enterprise Email Triage", page_icon="📧", layout="wide")
 
 # API Key Configuration
 def configure_api_key():
-    """Configure API key for AI services"""
+    """Configure API key using Hugging Face Space secrets"""
     st.sidebar.markdown("## 🔑 API Configuration")
     
     # Initialize session state for API keys
     if 'api_key' not in st.session_state:
-        st.session_state.api_key = os.getenv("OPENAI_API_KEY") or os.getenv("GROQ_API_KEY", "")
+        # Try Hugging Face Space secrets first, then environment variables
+        hf_groq_key = os.getenv("GROQ_API_KEY")  # HF Space secret
+        hf_openai_key = os.getenv("OPENAI_API_KEY")  # HF Space secret
+        
+        if hf_groq_key:
+            st.session_state.api_key = hf_groq_key
+            st.session_state.api_provider = "groq"
+        elif hf_openai_key:
+            st.session_state.api_key = hf_openai_key
+            st.session_state.api_provider = "openai"
+        else:
+            st.session_state.api_key = ""
+            st.session_state.api_provider = "unknown"
     
-    # API key input with auto-detection
-    api_key = st.sidebar.text_input(
-        "Enter API Key (OpenAI or Groq):",
-        type="password",
-        value=st.session_state.api_key,
-        placeholder="sk-... or gsk_...",
-        help="Enter your OpenAI (sk-) or Groq (gsk_) API key"
-    )
+    api_key = st.session_state.api_key
     
-    # Update session state if key changed
-    if api_key != st.session_state.api_key:
-        st.session_state.api_key = api_key
-    
-    # Detect API provider
+    # Detect and display API provider
     if api_key:
         if api_key.startswith("gsk_"):
             provider = "Groq"
@@ -40,33 +42,21 @@ def configure_api_key():
         elif api_key.startswith("sk-"):
             provider = "OpenAI"
             st.session_state.api_provider = "openai"
-        elif api_key.startswith("https://"):
-            # Handle the case where user pasted the full URL
-            st.sidebar.error("❌ Please enter only the API key, not the full URL")
-            return False
         else:
-            # Try to detect from key pattern or default to Groq
-            if len(api_key) > 40 and api_key.isalnum():
-                provider = "Groq (assumed)"
-                st.session_state.api_provider = "groq"
-            else:
-                provider = "Unknown"
-                st.session_state.api_provider = "unknown"
-                st.sidebar.error("❌ Invalid API key format")
-                st.sidebar.write(f"Key starts with: `{api_key[:10]}...`")
-                return False
-        
-        st.sidebar.success(f"✅ {provider} API Key configured")
-        
-        # Add reset button
-        if st.sidebar.button("🔄 Clear API Key"):
-            st.session_state.api_key = ""
+            provider = "Unknown"
             st.session_state.api_provider = "unknown"
-            st.rerun()
         
+        st.sidebar.success(f"✅ {provider} API Key configured (from HF Space secret)")
+        st.sidebar.write("**Ready for AI actions!** 🚀")
         return True
     else:
-        st.sidebar.warning("⚠️ API Key required for AI features")
+        st.sidebar.error("❌ No API key found in HF Space secrets")
+        st.sidebar.markdown("""
+        **To fix this:**
+        1. Go to your Hugging Face Space settings
+        2. Add `GROQ_API_KEY` or `OPENAI_API_KEY` as a secret
+        3. Restart the Space
+        """)
         return False
 
 def get_ai_decision(email: Dict[str, Any], api_key: str) -> Dict[str, Any]:
@@ -131,37 +121,13 @@ Respond with JSON format:
         return None
 
 def calculate_reward(email: Dict[str, Any], action: Dict[str, Any]) -> float:
-    """Calculate reward based on email type and action taken"""
-    intent = email['intent']
-    tool = action['tool']
+    """Calculate reward using enhanced reward system"""
+    reward_breakdown = reward_system.calculate_reward(email, action)
     
-    # Reward rules
-    if intent == "routine_password_reset" and tool == "auto_reply":
-        return 1.0
-    elif intent == "vip_server_outage" and tool == "route_to_human":
-        dept = action.get('arguments', {}).get('department', '')
-        if dept == "Emergency Support":
-            return 1.0
-        return 0.5
-    elif intent == "angry_client_refund" and tool == "route_to_human":
-        dept = action.get('arguments', {}).get('department', '')
-        if dept == "Customer Service":
-            return 0.8
-        return 0.3
-    elif intent == "hr_sensitive" and tool == "route_to_human":
-        dept = action.get('arguments', {}).get('department', '')
-        if dept == "HR":
-            return 1.0
-        return -0.5  # Never auto-reply to HR issues
-    elif intent == "spear_phishing" and tool == "route_to_human":
-        dept = action.get('arguments', {}).get('department', '')
-        if dept == "Security":
-            return 1.0
-        return -1.0  # Never engage with phishing
-    elif tool == "ask_for_clarification":
-        return 0.2
-    else:
-        return 0.1
+    # Store breakdown for display
+    st.session_state.last_reward_breakdown = reward_breakdown
+    
+    return reward_breakdown.total_reward
 
 def main():
     st.title("📧 Enterprise Email Triage Simulator")
@@ -244,8 +210,11 @@ def main():
     with col2:
         st.subheader("🤖 Action Selection")
         
-        # Mode selection
-        mode = st.radio("Mode:", ["Manual", "AI-Assisted"], horizontal=True)
+        # Mode selection - default to AI-Assisted when API key is configured
+        if api_configured:
+            mode = st.radio("Mode:", ["AI-Assisted", "Manual"], horizontal=True, index=0)
+        else:
+            mode = st.radio("Mode:", ["Manual", "AI-Assisted"], horizontal=True, index=0)
         
         if mode == "Manual":
             tool = st.selectbox("Select Tool:", ["auto_reply", "route_to_human", "ask_for_clarification"])
@@ -362,6 +331,32 @@ def main():
             for key in list(st.session_state.keys()):
                 del st.session_state[key]
             st.rerun()
+        
+        # Enhanced Reward Breakdown
+        if 'last_reward_breakdown' in st.session_state and st.session_state.last_reward_breakdown:
+            st.markdown("---")
+            st.markdown("**🔍 Reward Analysis:**")
+            breakdown = st.session_state.last_reward_breakdown
+            
+            # Total reward
+            reward_color = "green" if breakdown.total_reward > 0 else "red"
+            st.markdown(f"**Total:** :{reward_color}[{breakdown.total_reward:+.2f}]")
+            
+            # Component breakdown
+            with st.expander("View Component Breakdown"):
+                for component, score in breakdown.components.items():
+                    if score != 0:
+                        comp_color = "green" if score > 0 else "red"
+                        st.write(f"• {component.value}: :{comp_color}[{score:+.2f}]")
+                
+                if breakdown.flags:
+                    st.markdown("**⚠️ Flags:**")
+                    for flag in breakdown.flags:
+                        st.write(f"• {flag}")
+            
+            # Reasoning
+            st.markdown("**Reasoning:**")
+            st.write(breakdown.reasoning)
     
     # Footer
     st.markdown("---")

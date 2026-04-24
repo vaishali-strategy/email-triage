@@ -17,6 +17,7 @@ import json
 from pydantic import BaseModel, Field
 import openenv.core as oe
 from typing import Generic, TypeVar
+from reward_system import reward_system, RewardBreakdown
 
 
 class EmailIntent(Enum):
@@ -441,140 +442,49 @@ class EnterpriseEmailEnv(oe.Environment[ActType, ObsType, StateType]):
     
     def _calculate_llm_reward(self, action_type: ActionType, arguments: Dict[str, Any]) -> float:
         """
-        Calculate reward based on action type, arguments, and email intent with enhanced business logic.
+        Calculate reward using enhanced reward system with multiple independent components.
         
         Args:
             action_type: The type of action being performed
             arguments: Dictionary of arguments provided by the LLM
             
         Returns:
-            Reward value based on business logic constraints
+            Total reward value from enhanced reward system
         """
         if self.current_email is None:
             return -0.5
         
-        email_intent = self.current_email.intent
+        # Convert email to dict format for reward system
+        email_dict = {
+            "id": self.current_email.id,
+            "sender": self.current_email.sender,
+            "subject": self.current_email.subject,
+            "body": self.current_email.body,
+            "intent": self.current_email.intent.value,
+            "priority": self.current_email.priority,
+            "is_vip": self.current_email.is_vip
+        }
         
-        # Enhanced business logic with argument validation
-        if email_intent == EmailIntent.VIP_SERVER_OUTAGE:
-            department = arguments.get("department", "").lower()
-            
-            if action_type == ActionType.ROUTE_TO_HUMAN:
-                # Optimal: Route to Emergency Support, IT, or Technical departments
-                if any(optimal_dept in department for optimal_dept in ["emergency", "technical", "it", "support"]):
-                    return 1.0
-                # Suboptimal but acceptable: Other departments
-                elif department:
-                    return 0.5
-                else:
-                    return 0.3  # Missing department but still routed to human
-            elif action_type == ActionType.AUTO_REPLY:
-                return -1.0  # Never auto-reply to VIP emergencies
-            else:
-                return 0.0  # ask_for_clarification is neutral but not optimal
+        # Convert action to dict format for reward system
+        action_dict = {
+            "tool": action_type.value,
+            "arguments": arguments
+        }
         
-        elif email_intent == EmailIntent.ROUTINE_PASSWORD_RESET:
-            if action_type == ActionType.AUTO_REPLY:
-                message = arguments.get("message", "").lower()
-                # Bonus for helpful password reset message
-                if any(keyword in message for keyword in ["password", "reset", "account", "access"]):
-                    return 1.0
-                else:
-                    return 0.7  # Auto-replied but message could be better
-            else:
-                return 0.0  # Other actions are not optimal but not penalized
+        # Use enhanced reward system
+        reward_breakdown = reward_system.calculate_reward(email_dict, action_dict)
         
-        elif email_intent == EmailIntent.ANGRY_CLIENT_REFUND:
-            department = arguments.get("department", "").lower()
-            
-            if action_type == ActionType.AUTO_REPLY:
-                return -1.0  # Never auto-reply to angry clients
-            elif action_type == ActionType.ROUTE_TO_HUMAN:
-                # Optimal: Customer Service, Sales, or Billing departments
-                if any(optimal_dept in department for optimal_dept in ["customer", "service", "sales", "billing", "support"]):
-                    return 0.8
-                # Suboptimal: Other departments
-                elif department:
-                    return 0.3
-                else:
-                    return 0.1  # Missing department but still routed to human
-            else:
-                return 0.0
-        elif email_intent == EmailIntent.INVOICE_DISCREPANCY:
-            if action_type == ActionType.ROUTE_TO_HUMAN:
-                department = arguments.get("department", "").lower()
-                if any(dept in department for dept in ["finance", "accounting", "billing", "payable"]):
-                    return 1.0
-                return 0.3 # Routed to humans, but wrong department
-            return 0.0 # Ask for clarification or auto-reply is suboptimal here
-
-        elif email_intent == EmailIntent.HR_SENSITIVE:
-            if action_type == ActionType.AUTO_REPLY:
-                return -1.0 # HUGE PENALTY for automating HR complaints
-            elif action_type == ActionType.ROUTE_TO_HUMAN:
-                department = arguments.get("department", "").lower()
-                if any(dept in department for dept in ["hr", "human resources", "employee relations"]):
-                    return 1.0
-                return 0.2
-            return -0.5 # Do not ask for clarification on sensitive HR issues
-
-        elif email_intent == EmailIntent.SPEAR_PHISHING:
-            if action_type == ActionType.AUTO_REPLY or action_type == ActionType.ASK_FOR_CLARIFICATION:
-                return -1.0 # Huge penalty for engaging with hackers
-            elif action_type == ActionType.ROUTE_TO_HUMAN:
-                department = arguments.get("department", "").lower()
-                if any(dept in department for dept in ["security", "it", "infosec"]):
-                    return 1.0
-                return 0.1
-            return 0.0
-
-        elif email_intent == EmailIntent.FEATURE_REQUEST:
-            if action_type == ActionType.AUTO_REPLY:
-                message = arguments.get("message", "").lower()
-                if any(word in message for word in ["thank", "feedback", "suggestion", "forward"]):
-                    return 1.0 # Perfect use of auto-reply!
-                return 0.5
-            elif action_type == ActionType.ROUTE_TO_HUMAN:
-                department = arguments.get("department", "").lower()
-                if any(dept in department for dept in ["product", "engineering", "dev"]):
-                    return 0.8
-                return 0.2
-            return 0.0
-
-        elif email_intent == EmailIntent.MIXED_CHURN:
-            if action_type == ActionType.ASK_FOR_CLARIFICATION:
-                return 1.0 # Perfect use of the clarification tool!
-            elif action_type == ActionType.ROUTE_TO_HUMAN:
-                department = arguments.get("department", "").lower()
-                if any(dept in department for dept in ["success", "retention", "sales", "support"]):
-                    return 0.8
-                return 0.4
-            return -0.5 # Never auto-reply to a churning customer
+        # Store breakdown for debugging/monitoring
+        if not hasattr(self, 'last_reward_breakdown'):
+            self.last_reward_breakdown = reward_breakdown
+        else:
+            self.last_reward_breakdown = reward_breakdown
         
-        # For other email types, provide small positive rewards for reasonable actions
-        if email_intent == EmailIntent.GENERAL_INQUIRY:
-            if action_type == ActionType.ROUTE_TO_HUMAN:
-                department = arguments.get("department", "").lower()
-                if any(optimal_dept in department for optimal_dept in ["business", "development", "partnership", "sales"]):
-                    return 0.3
-                else:
-                    return 0.1
-            elif action_type == ActionType.ASK_FOR_CLARIFICATION:
-                return 0.2
-            else:
-                return 0.0
-        
-        elif email_intent == EmailIntent.SPAM:
-            if action_type == ActionType.ROUTE_TO_HUMAN:
-                department = arguments.get("department", "").lower()
-                if "security" in department or "spam" in department:
-                    return 0.2
-                else:
-                    return 0.1
-            else:
-                return 0.0
-        
-        return 0.0
+        return reward_breakdown.total_reward
+    
+    def get_last_reward_breakdown(self) -> Optional[RewardBreakdown]:
+        """Get the detailed breakdown of the last reward calculation"""
+        return getattr(self, 'last_reward_breakdown', None)
     
     def _get_llm_observation(self) -> Dict[str, Any]:
         """
