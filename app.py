@@ -40,11 +40,30 @@ def configure_api_key():
         elif api_key.startswith("sk-"):
             provider = "OpenAI"
             st.session_state.api_provider = "openai"
+        elif api_key.startswith("https://"):
+            # Handle the case where user pasted the full URL
+            st.sidebar.error("❌ Please enter only the API key, not the full URL")
+            return False
         else:
-            provider = "Unknown"
-            st.session_state.api_provider = "unknown"
+            # Try to detect from key pattern or default to Groq
+            if len(api_key) > 40 and api_key.isalnum():
+                provider = "Groq (assumed)"
+                st.session_state.api_provider = "groq"
+            else:
+                provider = "Unknown"
+                st.session_state.api_provider = "unknown"
+                st.sidebar.error("❌ Invalid API key format")
+                st.sidebar.write(f"Key starts with: `{api_key[:10]}...`")
+                return False
         
         st.sidebar.success(f"✅ {provider} API Key configured")
+        
+        # Add reset button
+        if st.sidebar.button("🔄 Clear API Key"):
+            st.session_state.api_key = ""
+            st.session_state.api_provider = "unknown"
+            st.rerun()
+        
         return True
     else:
         st.sidebar.warning("⚠️ API Key required for AI features")
@@ -54,7 +73,7 @@ def get_ai_decision(email: Dict[str, Any], api_key: str) -> Dict[str, Any]:
     """Get AI decision for email triage using OpenAI or Groq"""
     try:
         # Determine which API to use
-        provider = st.session_state.get('api_provider', 'openai')
+        provider = st.session_state.get('api_provider', 'groq')  # Default to Groq
         
         prompt = f"""
 You are an AI email triage assistant. Analyze the following email and decide the best action:
