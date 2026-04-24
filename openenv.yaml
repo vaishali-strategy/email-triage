@@ -1,0 +1,56 @@
+name: enterprise-email-triage
+description: |
+  OpenEnv-compliant RL environment for enterprise email triage.
+  AI agents learn to appropriately handle different types of emails using three available actions:
+  - auto_reply: Automatically respond to routine emails
+  - route_to_human: Forward emails to appropriate departments
+  - ask_for_clarification: Request more information for ambiguous cases
+  
+  The environment simulates a corporate inbox with various email types including:
+  - Routine password resets
+  - Angry client refund requests  
+  - VIP server outages
+  - HR sensitive matters
+  - Spear phishing attempts
+  - And more...
+
+entry_point: env:EnterpriseEmailEnv
+
+# Environment metadata for OpenEnv registry
+tags:
+  - email
+  - triage
+  - enterprise
+  - rl
+  - llm
+  - tool-calling
+  - business
+
+# Environment characteristics
+environment_type: episodic
+action_space: discrete
+observation_space: text
+
+# Supported model types
+model_types:
+  - llm
+  - tool_calling
+
+# Environment configuration
+max_episode_steps: 10
+difficulty: medium
+
+# Citation and attribution
+authors:
+  - Vaishali Strategy
+license: mit
+homepage: https://huggingface.co/spaces/Proteinrequired/enterprise-email-triage
+source_code: https://github.com/vaishali-strategy/email-triage
+
+# Testing and evaluation
+test_episodes: 100
+evaluation_metrics:
+  - average_reward
+  - success_rate
+  - security_compliance
+  - efficiency_score
