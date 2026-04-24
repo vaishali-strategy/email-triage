@@ -314,18 +314,24 @@ def main():
                         if api_key:
                             ai_decision = get_ai_decision(email, api_key)
                             if ai_decision:
+                                st.session_state.ai_decision = ai_decision
                                 st.success("✅ AI Recommendation:")
                                 st.json(ai_decision)
-                                
-                                if st.button("Execute AI Action"):
-                                    reward = calculate_reward(email, ai_decision)
-                                    st.session_state.total_reward += reward
-                                    st.session_state.actions.append({**ai_decision, "reward": reward, "mode": "AI"})
-                                    st.session_state.current_email = random.choice(sample_emails)
-                                    st.session_state.email_count += 1
-                                    st.rerun()
                         else:
                             st.error("Please enter API key in sidebar")
+                
+                # Show AI decision and execute button if available
+                if 'ai_decision' in st.session_state and st.session_state.ai_decision:
+                    if st.button("Execute AI Action", type="primary"):
+                        ai_decision = st.session_state.ai_decision
+                        reward = calculate_reward(email, ai_decision)
+                        st.session_state.total_reward += reward
+                        st.session_state.actions.append({**ai_decision, "reward": reward, "mode": "AI"})
+                        st.session_state.current_email = random.choice(sample_emails)
+                        st.session_state.email_count += 1
+                        # Clear AI decision after execution
+                        del st.session_state.ai_decision
+                        st.rerun()
     
     with col3:
         st.subheader("📊 Metrics & History")
