@@ -168,9 +168,10 @@ class EnhancedRewardSystem:
             else:
                 return 0.8, f"Selected appropriate action for {intent}"
         elif tool == "ask_for_clarification":
-            return 0.2, f"Conservative approach - asked for clarification"
+            # THE FIX: Punish the agent for asking for clarification when a clear action was required.
+            return -0.5, "Lazy approach: Asked for clarification instead of making a routing decision."
         else:
-            return -0.5, f"Suboptimal action: {tool} for {intent}"
+            return -0.8, f"Suboptimal action: {tool} for {intent}"
     
     def _reward_format_compliance(self, action: Dict[str, Any]) -> Tuple[float, str]:
         """Reward for proper action format"""
@@ -240,6 +241,8 @@ class EnhancedRewardSystem:
         if intent == "spear_phishing":
             if tool == "auto_reply":
                 return -1.0, "CRITICAL: Auto-replied to phishing attempt"
+            elif tool == "ask_for_clarification":
+                return -0.8, "CRITICAL: Wasting time on phishing attempt instead of routing to Security"
             elif tool == "route_to_human" and action.get('arguments', {}).get('department') == 'Security':
                 return 0.8, "Correctly routed phishing to Security"
         
@@ -250,6 +253,8 @@ class EnhancedRewardSystem:
                 return 0.8, "Correctly routed HR issue to HR"
         
         elif intent == "vip_server_outage":
+            if tool == "ask_for_clarification":
+                return -0.8, "CRITICAL: Delayed VIP emergency by asking for clarification"
             if tool == "route_to_human":
                 dept = action.get('arguments', {}).get('department', '')
                 if dept == "Emergency Support":
@@ -258,6 +263,7 @@ class EnhancedRewardSystem:
                     return 0.3, f"Routed VIP issue to {dept} (not emergency)"
         
         return 0.0, "No security considerations"
+        
     
     def _reward_efficiency(self, email: Dict[str, Any], action: Dict[str, Any]) -> Tuple[float, str]:
         """Reward for efficient handling"""
