@@ -205,7 +205,7 @@ def main():
         st.markdown(f"**Intent:** `{email['intent']}`")
         st.markdown("---")
         st.markdown("**Body:**")
-       st.text_area("Email Content", email['body'], height=200, disabled=True, label_visibility="collapsed")
+        st.text_area("Email Content", email['body'], height=200, disabled=True, label_visibility="collapsed")
     
     with col2:
         st.subheader("🤖 Action Selection")
