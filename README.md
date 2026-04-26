@@ -14,7 +14,7 @@ app_port: 7860
 
 [![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Space-blue)](https://huggingface.co/spaces/Proteinrequired/enterprise-email-triage)
 
-This project introduces an autonomous agentic system for corporate email triage, built on the **OpenEnv** framework. Developed by Ms. Vaishali at NIT Delhi, it automates high-volume decision-making—routing VIP issues to humans while auto-responding to routine tasks—using a fine-tuned **Llama-3.2-3B** model.
+This project introduces an autonomous agentic system for corporate email triage, built on the **OpenEnv** framework. It automates high-volume decision-making—routing VIP issues to humans while auto-responding to routine tasks—using a fine-tuned **Llama-3.2-3B** model.
 
 ---
 
@@ -149,15 +149,15 @@ docker run -p 8501:8501 -e OPENAI_API_KEY=your_key email-triage
 
 ---
 
-## ✅ Hackathon Requirements Met
+## Hackathon Requirements Met
 - [x] OpenEnv-compliant environment
 - [x] LLM tool call action format
 - [x] Working training script (Unsloth/TRL) provided via `train.ipynb`
 - [x] Evidence of training (Loss and Reward plots embedded)
 - [x] Pushed to Hugging Face Space for discoverability
-- [x] Comprehensive documentation and video/blog links
+- [x] Comprehensive documentation and blog links
 
-### 🎓 Acknowledgments
+### Acknowledgments
 * **Meta PyTorch Team** for the OpenEnv framework.
 * **National Institute of Technology Delhi (NITD)** for institutional support.
 * **Unsloth AI** for high-performance training kernels.
