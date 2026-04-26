@@ -19,7 +19,7 @@ This project introduces an autonomous agentic system for corporate email triage,
 ---
 
 ## 📽️ Write-up
-* **Technical Blog Post:** [Insert Hugging Face Blog Link Here]  
+* **Technical Blog Post:** [Read the full write-up here](./BLOG.md)
 * **Training Workbench:** [Click here to view](https://huggingface.co/spaces/Proteinrequired/email-agent-training)
 
 ## 💡 Motivation
