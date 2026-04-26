@@ -123,6 +123,3 @@ Navigate to the **Files** tab at the top of this Space and manually download `tr
 
 **Author:** [Vaishali](https://huggingface.co/Proteinrequired)
 ```
-
-
-Once you paste this in, double-check that your `email-triage-lora-final` folder is successfully uploaded to the Files tab, and you are 100% ready to submit!
