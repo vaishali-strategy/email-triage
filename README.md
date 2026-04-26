@@ -97,7 +97,10 @@ Actions are structured dictionaries that LLMs can generate naturally:
 
 ---
 
-## 🛠️ Technical Deployment & Quick Start
+## Technical Deployment & Quick Start
+
+### ⚠️ Important Note on Hugging Face Space Persistence
+Because Hugging Face Spaces reset their local storage upon rebooting or waking from sleep, any dynamically generated files from training (such as the fine-tuned LoRA adapters, `adapter_model.safetensors`, and the compressed model `.tar.gz` or `.zip`) must be **manually uploaded** to the Space's permanent file repository via the "Files" tab. This manual step ensures the trained weights persist across Space restarts and are always available for inference.
 
 ### Installation
 ```bash
