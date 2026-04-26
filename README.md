@@ -91,6 +91,9 @@ The environment returns observations as flat dictionaries optimized for LLM prom
 ## 🧪 How to Reproduce the Training
 If you would like to run the training script (`trainingscript.ipynb`) locally or in a Colab environment, you will need the dataset and environment files from this repository.
 The files needed to run the training are: `trainingscript.ipynb`, `dataset.json`, `env.py`, `reward_system.py`
+
+In Hugging Face space https://huggingface.co/spaces/Proteinrequired/email-agent-training/blob/main/trainingscript.ipynb, you can click "open in collab" button to run the script. 
+
 **Option 1: Clone the Repository (Recommended)**
 Clone this repository directly to get all files, including the pre-trained adapters:
 ```bash
