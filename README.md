@@ -106,6 +106,12 @@ huggingface-cli download spaces/Proteinrequired/enterprise-email-triage --local-
 **Option 3: Manual Download**
 Navigate to the **Files** tab at the top of this Space and manually download `training_script.ipynb`, `dataset.json`, `env.py`, `reward_system.py`.
 
+### 🚀 Run via Google Colab (Zero Setup)
+1. Go to [Google Colab](https://colab.research.google.com/) and click **Upload**.
+2. Download **ONLY** `training_script.ipynb` from the "Files" tab of this repository and upload it.
+3. Go to **Runtime > Change runtime type** and select **T4 GPU**.
+4. Run the first cell! The notebook will automatically fetch the required dependencies (`env.py`, `dataset.json`, `reward_system.py`), install Unsloth.
+5. Click **Runtime > Run all** to execute the training.
 ---
 
 ## Hackathon Requirements Met
