@@ -145,7 +145,7 @@ docker run -p 8501:8501 -e OPENAI_API_KEY=your_key email-triage
 * `env.py`: OpenEnv-compliant environment definition.
 * `dataset.json`: Synthetic corporate dataset (100+ email scenarios).
 * `reward_system.py`: Dynamic reward logic for agent optimization.
-* `train.ipynb`: Fully documented training script with logs.
+* `training_script.ipynb`: Fully documented training script with logs.
 * `app.py`: Streamlit-based UI for the live showcase.
 * `openenv.yaml`: Configuration file for environment validation.
 * `Dockerfile` / `docker-compose.yml`: Containerization specs.
