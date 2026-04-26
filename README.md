@@ -27,10 +27,10 @@ In large enterprises, communication bottlenecks lead to delayed IT support and m
 
 ---
 
-## 🏗️ Project Architecture: Two-Space Workflow
+## Project Architecture: Two-Space Workflow
 To ensure a clean production environment, this project utilized a separated architecture:
-1. **The Training Factory:** Model fine-tuning, Unsloth compilation, and Behavioral Cloning were executed in an isolated, GPU-heavy environment to prevent memory leaks and keep the production codebase clean.
-2. **The Production Showroom (This Repo):** The resulting LoRA adapters, evidence plots, and OpenEnv logic were exported and deployed here for inference, UI interaction, and judge evaluation.
+1. **The Training Factory:** Model fine-tuning, Unsloth compilation, and Behavioral Cloning were executed in an isolated, GPU-heavy environment to prevent memory leaks and keep the production codebase clean. This was done in the https://huggingface.co/spaces/Proteinrequired/email-agent-training space, where the files had to be manually downloaded from Files of the space, and the successfully ran the training script.
+2. **The Production Showroom (This Repo):** The resulting LoRA adapters, evidence plots, and OpenEnv logic were exported and deployed here for inference, UI interaction, and judge evaluation. All the results have been pushed onto this repo space, where there is the simulator for the AI-assisted email triage workflow.
 
 ---
 
@@ -89,8 +89,8 @@ The environment returns observations as flat dictionaries optimized for LLM prom
 ---
 
 ## 🧪 How to Reproduce the Training
-If you would like to run the training script (`train.ipynb`) locally or in a Colab environment, you will need the dataset and environment files from this repository.
-
+If you would like to run the training script (`training_script.ipynb`) locally or in a Colab environment, you will need the dataset and environment files from this repository.
+The files needed to run the training are: `training_script.ipynb`, `dataset.json`, `env.py`, `reward_system.py`
 **Option 1: Clone the Repository (Recommended)**
 Clone this repository directly to get all files, including the pre-trained adapters:
 ```bash
