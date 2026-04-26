@@ -40,6 +40,7 @@ The results were highly encouraging. Over 60 steps of Supervised Fine-Tuning (SF
 | ![Loss](./training_loss.png) | ![Rewards](./reward_curve.png) |
 
 By the end of the training, the agent could successfully identify a VIP sender and escalate their request to the Human Support team with **90%+ accuracy**, while handling routine password resets automatically.
+The training loss indicates a rapid and stable convergence within 60 steps, while the bimodal reward distribution confirms a high-contrast environment that successfully distinguishes between high-priority routing and suboptimal agent behavior.
 
 ---
 
