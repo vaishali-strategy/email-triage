@@ -2,7 +2,7 @@
 ### My Journey with OpenEnv and Llama-3.2
 
 **By Vaishali, NIT Delhi**
-*Submission for the Meta PyTorch OpenEnv AI Hackathon*
+*Submission for the Meta PyTorch OpenEnv Hackathon*
 
 ---
 
