@@ -149,6 +149,10 @@ docker run -p 8501:8501 -e OPENAI_API_KEY=your_key email-triage
 * `app.py`: Streamlit-based UI for the live showcase.
 * `openenv.yaml`: Configuration file for environment validation.
 * `Dockerfile` / `docker-compose.yml`: Containerization specs.
+* **`email-triage-lora-final/`**: The exported fine-tuned model artifacts containing:
+  * `adapter_model.safetensors`: The trained Behavioral Cloning weights (the "brain").
+  * `adapter_config.json`: The LoRA configuration and hyperparameters used.
+  * `tokenizer.json` & `special_tokens_map.json`: The specific tokenizer settings required to enforce perfect JSON tool-calling.
 
 ---
 
