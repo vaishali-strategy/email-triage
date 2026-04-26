@@ -110,7 +110,7 @@ Navigate to the **Files** tab at the top of this Space and manually download `tr
 1. Go to [Google Colab](https://colab.research.google.com/) and click **Upload**.
 2. Download **ONLY** `training_script.ipynb` from the "Files" tab of this repository and upload it.
 3. Go to **Runtime > Change runtime type** and select **T4 GPU**.
-4. Run the first cell! The notebook will automatically fetch the required dependencies (`env.py`, `dataset.json`, `reward_system.py`), install Unsloth.
+4. Run the first cell! The notebook will automatically fetch the required dependencies (`env.py`, `dataset.json`, `reward_system.py`), install Unsloth, and prompt you for a HF token. ⚠️ Note to Judges: Because this environment fine-tunes Llama-3.2 (a gated model), please have a Hugging Face read-access token ready when running the Colab notebook to authenticate the base model download.
 5. Click **Runtime > Run all** to execute the training.
 ---
 
