@@ -77,7 +77,7 @@ The environment returns observations as flat dictionaries optimized for LLM prom
 * `env.py`: OpenEnv-compliant environment definition.
 * `dataset.json`: Synthetic corporate dataset (100+ email scenarios).
 * `reward_system.py`: Dynamic reward logic for agent optimization.
-* `training_script.ipynb`: Fully documented training script with logs.
+* `trainingscript.ipynb`: Fully documented training script with logs.
 * `inference.py`: Standalone script to test the model's "Before and After" behavior locally.
 * `app.py`: Streamlit-based UI for the live showcase.
 * `openenv.yaml`: Configuration file for environment validation.
@@ -89,8 +89,8 @@ The environment returns observations as flat dictionaries optimized for LLM prom
 ---
 
 ## 🧪 How to Reproduce the Training
-If you would like to run the training script (`training_script.ipynb`) locally or in a Colab environment, you will need the dataset and environment files from this repository.
-The files needed to run the training are: `training_script.ipynb`, `dataset.json`, `env.py`, `reward_system.py`
+If you would like to run the training script (`trainingscript.ipynb`) locally or in a Colab environment, you will need the dataset and environment files from this repository.
+The files needed to run the training are: `trainingscript.ipynb`, `dataset.json`, `env.py`, `reward_system.py`
 **Option 1: Clone the Repository (Recommended)**
 Clone this repository directly to get all files, including the pre-trained adapters:
 ```bash
@@ -104,11 +104,11 @@ huggingface-cli download spaces/Proteinrequired/enterprise-email-triage --local-
 ```
 
 **Option 3: Manual Download**
-Navigate to the **Files** tab at the top of this Space and manually download `training_script.ipynb`, `dataset.json`, `env.py`, `reward_system.py`.
+Navigate to the **Files** tab at the top of this Space and manually download `trainingscript.ipynb`, `dataset.json`, `env.py`, `reward_system.py`.
 
 ### 🚀 Run via Google Colab (Zero Setup)
 1. Go to [Google Colab](https://colab.research.google.com/) and click **Upload**.
-2. Download **ONLY** `training_script.ipynb` from the "Files" tab of this repository and upload it.
+2. Download **ONLY** `trainingscript.ipynb` from the "Files" tab of this repository and upload it.
 3. Go to **Runtime > Change runtime type** and select **T4 GPU**.
 4. Run the first cell! The notebook will automatically fetch the required dependencies (`env.py`, `dataset.json`, `reward_system.py`), install Unsloth, and prompt you for a HF token. ⚠️ Note to Judges: Because this environment fine-tunes Llama-3.2 (a gated model), please have a Hugging Face read-access token ready when running the Colab notebook to authenticate the base model download.
 5. Click **Runtime > Run all** to execute the training.
@@ -117,14 +117,14 @@ Navigate to the **Files** tab at the top of this Space and manually download `tr
 ## Hackathon Requirements Met
 - [x] OpenEnv-compliant environment
 - [x] LLM tool call action format
-- [x] Working training script (Unsloth/TRL) provided via `training_script.ipynb`
+- [x] Working training script (Unsloth/TRL) provided via `trainingscript.ipynb`
 - [x] Evidence of training (Loss and Reward plots embedded)
 - [x] Pushed to Hugging Face Space for discoverability
 - [x] Comprehensive documentation and blog links
 
 ### Acknowledgments
 * **Meta PyTorch Team** for the OpenEnv framework.
-* **National Institute of Technology Delhi (NITD)** for institutional support.
+* **Hugging Face** for the workbench
 * **Unsloth AI** for high-performance training kernels.
 
 **Author:** [Vaishali](https://huggingface.co/Proteinrequired)
