@@ -18,12 +18,19 @@ This project introduces an autonomous agentic system for corporate email triage,
 
 ---
 
-## 📽️ Write-up
+## 📽️ Documentation & Links
 * **Technical Blog Post:** [Read the full write-up here](./BLOG.md)
-* **Training Workbench:** [Click here to view](https://huggingface.co/spaces/Proteinrequired/email-agent-training)
+* **Training Workbench:** [View the Training Space here](https://huggingface.co/spaces/Proteinrequired/email-agent-training)
 
 ## 💡 Motivation
 In large enterprises, communication bottlenecks lead to delayed IT support and missed VIP opportunities. This environment was built to solve the **"Triage Fatigue"** problem by training an agent that understands urgency, sender priority, and corporate context, allowing human employees to focus on complex problem-solving.
+
+---
+
+## 🏗️ Project Architecture: Two-Space Workflow
+To ensure a clean production environment, this project utilized a separated architecture:
+1. **The Training Factory:** Model fine-tuning, Unsloth compilation, and Behavioral Cloning were executed in an isolated, GPU-heavy environment to prevent memory leaks and keep the production codebase clean.
+2. **The Production Showroom (This Repo):** The resulting LoRA adapters, evidence plots, and OpenEnv logic were exported and deployed here for inference, UI interaction, and judge evaluation.
 
 ---
 
@@ -38,8 +45,8 @@ The agent underwent Behavioral Cloning (BC) using **Unsloth** and **Hugging Face
 
 ---
 
-## 🏗️ Environment Logic (OpenEnv)
-This project is built on the **latest OpenEnv release**, extending the framework to handle high-dimensional text-based corporate state spaces.
+## 🧠 Environment Logic (OpenEnv)
+This project extends the **OpenEnv** framework to handle high-dimensional text-based corporate state spaces.
 
 ### LLM-Friendly State Space
 The environment returns observations as flat dictionaries optimized for LLM prompt injection:
@@ -51,93 +58,18 @@ The environment returns observations as flat dictionaries optimized for LLM prom
         "sender": "user@company.com",
         "subject": "Password Reset Request",
         "body": "Email content...",
-        "intent": "routine_password_reset",
-        "priority": 2,
         "is_vip": False,
         "suggested_department": "IT"
     },
-    "processed_emails": ["email_002"],
-    "available_tools": [
-        # ... standard OpenEnv tool definitions ...
-    ],
-    "step_count": 1,
-    "total_reward": 0.5,
-    "last_action": "route_to_human"
+    "available_tools": ["route_to_human", "auto_reply", "ask_for_clarification"]
 }
 ```
 
-### LLM Tool Call Action Space
-Actions are structured dictionaries that LLMs can generate naturally:
-
-```python
-# Auto-reply with message
-{
-    "tool": "auto_reply",
-    "arguments": {"email_id": "email_001", "message": "I can help you reset your password..."}
-}
-
-# Route to human with department
-{
-    "tool": "route_to_human",
-    "arguments": {"email_id": "email_002", "department": "Emergency Support"}
-}
-
-# Ask for clarification
-{
-    "tool": "ask_for_clarification",
-    "arguments": {"email_id": "email_003"}
-}
-```
-
-### Enhanced Reward Structure (LLM-Aware)
-- **+10.0**: Route VIP outage/HR issues/Invoice to correct departments or successful auto-reply to routine tasks.
-- **+5.0 / +8.0**: Route to suboptimal but acceptable departments.
-- **-1.0**: Unnecessary clarification requests.
-- **-5.0**: Incorrect routing (e.g., auto-replying to an angry client or sensitive HR issue).
-
----
-
-## Technical Deployment & Quick Start
-
-### ⚠️ Important Note on Hugging Face Space Persistence
-Because Hugging Face Spaces reset their local storage upon rebooting or waking from sleep, any dynamically generated files from training (such as the fine-tuned LoRA adapters, `adapter_model.safetensors`, and the compressed model `.tar.gz` or `.zip`) must be **manually uploaded** to the Space's permanent file repository via the "Files" tab. This manual step ensures the trained weights persist across Space restarts and are always available for inference.
-
-### Installation
-```bash
-pip install -r requirements.txt
-```
-
-### Quick Start (Python)
-```python
-from env import EnterpriseEmailEnv
-
-# Initialize environment
-env = EnterpriseEmailEnv()
-
-# Reset and get initial LLM-friendly observation
-obs = env.reset()
-
-# Take an LLM tool call action
-action = {
-    "tool": "route_to_human",
-    "arguments": {
-        "email_id": obs['current_email']['email_id'],
-        "department": "Customer Service"
-    }
-}
-obs, reward, done, info = env.step(action)
-```
-
-### Docker Deployment
-The project includes a multi-stage Docker build optimized for production.
-```bash
-# Build and run with Docker Compose
-docker-compose up --build
-
-# Or build and run manually
-docker build -t email-triage .
-docker run -p 8501:8501 -e OPENAI_API_KEY=your_key email-triage
-```
+### Enhanced Reward Structure
+* **+10.0**: Route VIP outage/HR issues to correct departments or successful auto-reply to routine tasks.
+* **+5.0 to +8.5**: Route to suboptimal but acceptable departments.
+* **-1.0 to -2.75**: Unnecessary clarification requests.
+* **-5.0**: Incorrect routing (e.g., auto-replying to an angry client).
 
 ---
 
@@ -146,20 +78,40 @@ docker run -p 8501:8501 -e OPENAI_API_KEY=your_key email-triage
 * `dataset.json`: Synthetic corporate dataset (100+ email scenarios).
 * `reward_system.py`: Dynamic reward logic for agent optimization.
 * `training_script.ipynb`: Fully documented training script with logs.
+* `inference.py`: Standalone script to test the model's "Before and After" behavior locally.
 * `app.py`: Streamlit-based UI for the live showcase.
 * `openenv.yaml`: Configuration file for environment validation.
-* `Dockerfile` / `docker-compose.yml`: Containerization specs.
 * **`email-triage-lora-final.tar.gz/`**: The exported fine-tuned model artifacts containing:
-  * `adapter_model.safetensors`: The trained Behavioral Cloning weights (the "brain").
-  * `adapter_config.json`: The LoRA configuration and hyperparameters used.
-  * `tokenizer.json` & `special_tokens_map.json`: The specific tokenizer settings required to enforce perfect JSON tool-calling.
+    * `adapter_model.safetensors`: The trained Behavioral Cloning weights.
+    * `adapter_config.json`: The LoRA configuration used.
+    * `tokenizer.json` & `special_tokens_map.json`: Tokenizer settings enforcing JSON tool-calling.
+
+---
+
+## 🧪 How to Reproduce the Training
+If you would like to run the training script (`train.ipynb`) locally or in a Colab environment, you will need the dataset and environment files from this repository.
+
+**Option 1: Clone the Repository (Recommended)**
+Clone this repository directly to get all files, including the pre-trained adapters:
+```bash
+git clone [https://huggingface.co/spaces/Proteinrequired/enterprise-email-triage](https://huggingface.co/spaces/Proteinrequired/enterprise-email-triage)
+cd enterprise-email-triage
+```
+
+**Option 2: Using Hugging Face CLI**
+```bash
+huggingface-cli download spaces/Proteinrequired/enterprise-email-triage --local-dir ./email-triage
+```
+
+**Option 3: Manual Download**
+Navigate to the **Files** tab at the top of this Space and manually download `training_script.ipynb`, `dataset.json`, `env.py`, `reward_system.py`.
 
 ---
 
 ## Hackathon Requirements Met
 - [x] OpenEnv-compliant environment
 - [x] LLM tool call action format
-- [x] Working training script (Unsloth/TRL) provided via `train.ipynb`
+- [x] Working training script (Unsloth/TRL) provided via `training_script.ipynb`
 - [x] Evidence of training (Loss and Reward plots embedded)
 - [x] Pushed to Hugging Face Space for discoverability
 - [x] Comprehensive documentation and blog links
@@ -169,5 +121,8 @@ docker run -p 8501:8501 -e OPENAI_API_KEY=your_key email-triage
 * **National Institute of Technology Delhi (NITD)** for institutional support.
 * **Unsloth AI** for high-performance training kernels.
 
-**Author:** [Proteinrequired](https://huggingface.co/Proteinrequired)  
+**Author:** [Vaishali](https://huggingface.co/Proteinrequired)
 ```
+
+
+Once you paste this in, double-check that your `email-triage-lora-final` folder is successfully uploaded to the Files tab, and you are 100% ready to submit!
